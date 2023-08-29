@@ -1,0 +1,19 @@
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.location input,
+.location button {
+    border: none;
+    padding: 10px;
+    font-size: clamp(10px, 1vw, 30px);
+    border-radius: 10px;
+}
+
+.location button {
+    background-color: #87CEEB;
+    cursor: pointer;
+}
