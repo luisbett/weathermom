@@ -7,7 +7,7 @@ import classes from "./Button.module.css"
 function Button({handleClick}: ButtonProps) {
 
     return(
-        <button className={classes.sendButton} onClick={() => handleClick()}>
+        <button className={classes.buttonStyle} onClick={() => handleClick()}>
             Send message
             <RiSendPlaneFill />
         </button>

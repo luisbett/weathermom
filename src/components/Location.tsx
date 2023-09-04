@@ -1,8 +1,6 @@
-type LocationProps = {
-    loadLocation: (location: string) => Promise<void>
-}
-
 import { KeyboardEvent, useState } from "react"
+
+import { LocationProps } from "../types/location"
 
 import { ImSearch } from "react-icons/im"
 

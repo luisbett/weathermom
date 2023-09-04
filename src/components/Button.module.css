@@ -1,4 +1,4 @@
-.sendButton {
+.buttonStyle {
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -10,4 +10,5 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    cursor: pointer;
 }

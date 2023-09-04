@@ -1,4 +1,5 @@
 export type MessageProps = {
+	messageSon: boolean,
 	message: string,
 	velocity: any,
 	delay: number,

@@ -4,11 +4,15 @@ import { MessageProps } from "../types/message"
 
 import classes from "./Message.module.css"
 
-function Message({message, velocity, delay, nextMessage, setLoading}: MessageProps) {
+function Message({messageSon, message, velocity, delay, nextMessage, setLoading}: MessageProps) {
 
-    return (
-        <div className={classes.message}>
+	//Const to define the style of the message
+	const messageStyle = messageSon ? classes.son : classes.mom
+
+	return (
+		<div className={messageStyle}>
             <TypeAnimation
+				style={{whiteSpace: 'pre-line'}}
 				sequence={[
 					message, //Message
 					() => { setLoading(true) }, //Loading icon activate

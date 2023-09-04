@@ -16,28 +16,53 @@ function App() {
 	const [message3, setMessage3] = useState(false)
 	const [message4, setMessage4] = useState(false)
 	const [message5, setMessage5] = useState(false)
+	const [message6, setMessage6] = useState(false)
 
 	//States used to control the loading icon
 	const [loading1, setLoading1] = useState(false)
 	const [loading2, setLoading2] = useState(false)
+	const [loading3, setLoading3] = useState(false)
 
+	//States to save the weather data
+	const [name, setName] = useState("")
+	const [temp, setTemp] = useState("")
+	const [desc, setDesc] = useState("")
+	const [country, setCountry] = useState("")
+	const [humidity, setHumidity] = useState("")
+	const [wind, setWind] = useState("")
+	
 	//Function to init the messages presentation
 	const activateMessages = () => { 
 		setMessage1(true)
 	}
 
-	//Function to return the weather status
+	//Function to receive and manipulate weather data
 	const loadLocation = async (location: string) => {
+
+		const data = await callApi(location)
+
+		data.main.temp = Math.round(Number(data.main.temp))
+
+		setName(data.name)
+		setTemp(data.main.temp.toString())
+		setDesc(data.weather[0].description)
+		setCountry(data.sys.country)
+		setHumidity(data.main.humidity)
+		setWind(data.wind.speed)
+
+		setLocation(location)
+		setMessage3(false)
+		setMessage4(true)
+	}
+
+	//Function to call api and return weather data
+	const callApi = async (location: string) => {
 
 		const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${import.meta.env.VITE_API_KEY}`)
 
 		const data = await res.json()
 
-		console.log(data)
-
-		setLocation(location)
-		setMessage4(true)
-		setMessage3(false)
+		return data
 	}
 
 	return (
@@ -45,31 +70,19 @@ function App() {
 			<h1>👵🏻 Weathermom 🌦️</h1>
 			{ !message1
 			? <Button handleClick={activateMessages}/>
-			: <div className={classes.son}>
-				<Message message="I am leaving, mom!" delay={5000} velocity={30} nextMessage={setMessage2} setLoading={setLoading1}/>
-			</div> }
-			{ message2 ? ( 
-			<div className={classes.mom}>
-				<Message message="Where are you going to, honey?" delay={1000} velocity={10} nextMessage={setMessage3} setLoading={() => {}}/>
-			</div> ) : ( loading1 && !message2 && (
-				<LoadingIcon />
-			) ) }
-			{ message3 && (
-			<div className={classes.son}>
-				<Location loadLocation={loadLocation}/>
-			</div>
-			) }
-			{ message4 && (
-			<div className={classes.son}>
-				<Message message={"I am going to " + location} delay={5000} velocity={30} nextMessage={setMessage5} setLoading={setLoading2}/>
-			</div> ) }
-			{ message5 ? (
-			<div className={classes.mom}>
-				<Message message="Ok, so this is what you need to take:" delay={1000} velocity={30} nextMessage={setMessage4} setLoading={() => {}}/>
-			</div>
-			) : ( loading2 && !message5 && (
-				<LoadingIcon />
-			) ) }
+			: <Message messageSon={true} message="I am leaving, mom!" delay={5000} velocity={25} nextMessage={setMessage2} setLoading={setLoading1}/> }
+			{ message2 
+			? <Message messageSon={false} message="Where are you going to, honey?" delay={1000} velocity={10} nextMessage={setMessage3} setLoading={() => {}}/>
+			: ( loading1 && !message2 && ( <LoadingIcon /> ) ) }
+			{ message3 && <Location loadLocation={loadLocation}/> }
+			{ message4 
+			&& <Message messageSon={true} message={"I am going to " + location} delay={5000} velocity={25} nextMessage={setMessage5} setLoading={setLoading2}/> }
+			{ message5
+			? <Message messageSon={false} message="Ok, so this is what you need to take:" delay={1000} velocity={10} nextMessage={setMessage6} setLoading={setLoading3}/>
+			: ( loading2 && !message5 && <LoadingIcon /> ) }
+			{ message6
+			? <Message messageSon={false} message={`The name is ${name}\nThe temp is ${temp}\nThe desc is ${desc}\nThe country is ${country}\nThe humidity is ${humidity}\nThe wind is ${wind}`} delay={4000} velocity={10} nextMessage={setMessage4} setLoading={() => {}}/>
+			: ( loading3 && !message6 && <LoadingIcon /> ) }
 		</div>
 	)
 }
