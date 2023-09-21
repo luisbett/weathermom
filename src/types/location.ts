@@ -1,3 +1,3 @@
 export type LocationProps = {
-    loadLocation: (location: string) => Promise<void>
+    loadLocation: (location: string) => void
 }

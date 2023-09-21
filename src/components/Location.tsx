@@ -6,6 +6,8 @@ import { ImSearch } from "react-icons/im"
 
 import classes from "./Location.module.css"
 
+import Button from "./Button"
+
 function Location({ loadLocation }: LocationProps) {
 
     //States
@@ -19,6 +21,11 @@ function Location({ loadLocation }: LocationProps) {
         }
     }
 
+    //Click function
+    const handleClick = () => {
+        loadLocation(location)
+    }
+
     return (
         <div className={classes.location}>
             <input
@@ -27,9 +34,7 @@ function Location({ loadLocation }: LocationProps) {
                 onChange={(e) => setLocation(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-            <button onClick={() => loadLocation(location)}>
-                <ImSearch />
-            </button>
+            <Button buttonTitle="" buttonIcon={ImSearch} buttonClick={handleClick} />
         </div>
     )
 }

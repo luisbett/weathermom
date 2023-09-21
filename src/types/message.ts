@@ -1,5 +1,5 @@
 export type MessageProps = {
-	messageSon: boolean,
+	customClass: string,
 	message: string,
 	velocity: any,
 	delay: number,

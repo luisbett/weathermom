@@ -5,6 +5,7 @@
     flex-direction: column;
     background-color: #00A1C9;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #245480;
 }
 
 .app h1 {

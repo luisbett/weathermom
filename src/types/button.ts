@@ -1,3 +1,7 @@
+import { IconType } from "react-icons"
+
 export type ButtonProps = {
-    handleClick: Function
+    buttonTitle: string,
+    buttonIcon?: IconType,
+    buttonClick: (location: string) => void
 }

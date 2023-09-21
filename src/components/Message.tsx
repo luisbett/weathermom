@@ -4,13 +4,10 @@ import { MessageProps } from "../types/message"
 
 import classes from "./Message.module.css"
 
-function Message({messageSon, message, velocity, delay, nextMessage, setLoading}: MessageProps) {
-
-	//Const to define the style of the message
-	const messageStyle = messageSon ? classes.son : classes.mom
+function Message({customClass, message, velocity, delay, nextMessage, setLoading}: MessageProps) {
 
 	return (
-		<div className={messageStyle}>
+		<div className={`${classes[customClass]}`}>
             <TypeAnimation
 				style={{whiteSpace: 'pre-line'}}
 				sequence={[

@@ -7,6 +7,8 @@ import LoadingIcon from "./components/LoadingIcon"
 
 import classes from "./App.module.css"
 
+import { RiSendPlaneFill } from "react-icons/ri"
+
 function App() {
 
 	//States used to define the messages sequence
@@ -69,19 +71,19 @@ function App() {
 		<div className={classes.app}>
 			<h1>👵🏻 Weathermom 🌦️</h1>
 			{ !message1
-			? <Button handleClick={activateMessages}/>
-			: <Message messageSon={true} message="I am leaving, mom!" delay={5000} velocity={25} nextMessage={setMessage2} setLoading={setLoading1}/> }
+			? <Button buttonTitle='Send message' buttonIcon={RiSendPlaneFill} buttonClick={activateMessages} />
+			: <Message customClass='son' message="I am leaving, mom!" delay={5000} velocity={25} nextMessage={setMessage2} setLoading={setLoading1}/> }
 			{ message2 
-			? <Message messageSon={false} message="Where are you going to, honey?" delay={1000} velocity={10} nextMessage={setMessage3} setLoading={() => {}}/>
+			? <Message customClass='mom' message="Where are you going to, honey?" delay={1000} velocity={10} nextMessage={setMessage3} setLoading={() => {}}/>
 			: ( loading1 && !message2 && ( <LoadingIcon /> ) ) }
 			{ message3 && <Location loadLocation={loadLocation}/> }
 			{ message4 
-			&& <Message messageSon={true} message={"I am going to " + location} delay={5000} velocity={25} nextMessage={setMessage5} setLoading={setLoading2}/> }
+			&& <Message customClass='son' message={"I am going to " + location} delay={5000} velocity={25} nextMessage={setMessage5} setLoading={setLoading2}/> }
 			{ message5
-			? <Message messageSon={false} message="Ok, so this is what you need to take:" delay={1000} velocity={10} nextMessage={setMessage6} setLoading={setLoading3}/>
+			? <Message customClass='mom' message="Ok, so this is what you need to take:" delay={1000} velocity={10} nextMessage={setMessage6} setLoading={setLoading3}/>
 			: ( loading2 && !message5 && <LoadingIcon /> ) }
 			{ message6
-			? <Message messageSon={false} message={`The name is ${name}\nThe temp is ${temp}\nThe desc is ${desc}\nThe country is ${country}\nThe humidity is ${humidity}\nThe wind is ${wind}`} delay={4000} velocity={10} nextMessage={setMessage4} setLoading={() => {}}/>
+			? <Message customClass='mom' message={`The name is ${name}\nThe temp is ${temp}\nThe desc is ${desc}\nThe country is ${country}\nThe humidity is ${humidity}\nThe wind is ${wind}`} delay={4000} velocity={10} nextMessage={setMessage4} setLoading={() => {}}/>
 			: ( loading3 && !message6 && <LoadingIcon /> ) }
 		</div>
 	)

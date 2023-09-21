@@ -1,15 +1,19 @@
-import { ButtonProps } from "../types/button"
+import React from "react"
 
-import { RiSendPlaneFill } from "react-icons/ri"
+import { ButtonProps } from "../types/button"
 
 import classes from "./Button.module.css"
 
-function Button({handleClick}: ButtonProps) {
+function Button({buttonTitle, buttonIcon, buttonClick}: ButtonProps) {
+
+    const handleClick = () => {
+        buttonClick('')
+    }
 
     return(
-        <button className={classes.buttonStyle} onClick={() => handleClick()}>
-            Send message
-            <RiSendPlaneFill />
+        <button className={classes.buttonStyle} onClick={handleClick}>
+            {buttonTitle}
+            { buttonIcon && <span>{React.createElement(buttonIcon)}</span> }
         </button>
     )
 }
