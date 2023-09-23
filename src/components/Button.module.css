@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .buttonStyle {
     padding: 10px;
     background-color: #87CEEB;
@@ -9,4 +15,9 @@
     justify-content: center;
     gap: 5px;
     cursor: pointer;
+    transition: .3s;
+}
+
+.buttonStyle:hover {
+    transform: scale(1.05);
 }

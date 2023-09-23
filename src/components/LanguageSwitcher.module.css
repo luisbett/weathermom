@@ -1,0 +1,23 @@
+.select {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0!important;
+    background: #00A1C9;
+    padding: 0 7px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    line-height: 2;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #245480;
+    transition: .3s;
+}
+
+.select:hover {
+    transform: scale(1.05);
+}

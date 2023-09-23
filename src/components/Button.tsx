@@ -11,10 +11,12 @@ function Button({buttonTitle, buttonIcon, buttonClick}: ButtonProps) {
     }
 
     return(
-        <button className={classes.buttonStyle} onClick={handleClick}>
-            {buttonTitle}
-            { buttonIcon && <span>{React.createElement(buttonIcon)}</span> }
-        </button>
+        <div className={classes.container}>
+            <button className={classes.buttonStyle} onClick={handleClick}>
+                {buttonTitle}
+                { buttonIcon && <span>{React.createElement(buttonIcon)}</span> }
+            </button>
+        </div>
     )
 }
 
