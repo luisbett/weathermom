@@ -1,5 +1,11 @@
-.app {
-    min-width: 500px;
+.langButton {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+}
+
+.container {
+    min-width: 330px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -8,8 +14,14 @@
     box-shadow: 5px 5px 5px #245480;
 }
 
-.app h1 {
+.container h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #FFFFFF;
+}
+
+@media (min-width: 800px) {
+    .container {
+        min-width: 500px;
+    }
 }

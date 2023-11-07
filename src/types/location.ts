@@ -1,3 +1,3 @@
 export type LocationProps = {
-    loadLocation: (location: string) => void
+    loadLocation: (name: string, lat: number, lng: number) => void
 }

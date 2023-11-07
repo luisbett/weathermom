@@ -6,13 +6,9 @@ import classes from "./Button.module.css"
 
 function Button({buttonTitle, buttonIcon, buttonClick}: ButtonProps) {
 
-    const handleClick = () => {
-        buttonClick('')
-    }
-
     return(
         <div className={classes.container}>
-            <button className={classes.buttonStyle} onClick={handleClick}>
+            <button className={classes.buttonStyle} onClick={buttonClick}>
                 {buttonTitle}
                 { buttonIcon && <span>{React.createElement(buttonIcon)}</span> }
             </button>
