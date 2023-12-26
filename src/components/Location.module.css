@@ -7,6 +7,6 @@
 .location input {
     border: none;
     padding: 10px;
-    font-size: clamp(10px, 1vw, 30px);
+    font-size: clamp(13px, 1vw, 30px);
     border-radius: 10px;
 }

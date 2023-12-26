@@ -7,7 +7,7 @@
 .buttonStyle {
     padding: 10px;
     background-color: #87CEEB;
-    font-size: clamp(10px, 1vw, 30px);
+    font-size: clamp(13px, 1vw, 30px);
     border-radius: 10px;
     border: none;
     display: flex;
