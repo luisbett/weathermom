@@ -8,9 +8,11 @@ Project in currently development. Users can input the place to get the weather i
 
 ## Project Screen Shots
 
-[ PRETEND SCREEN SHOT IS HERE ]
+![screenshot_1](/public/screenshot_1.png)
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+![screenshot_2](/public/screenshot_2.png)
+
+![screenshot_3](/public/screenshot_3.png)
 
 ## Installation and Setup Instructions
 
