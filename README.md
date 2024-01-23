@@ -2,6 +2,10 @@
 
 An application designed to provide weather information to the user in a unique way, adopting the persona of a caring mother. The project was built using React (JavaScript, HTML, and CSS) + TypeScript.
 
+## Live Link
+
+[luisbett-weathermom.netlify.app](https://luisbett-weathermom.netlify.app/)
+
 ## Project Status
 
 The project is currently in development. Users can input a location to retrieve weather information using cities. Functionality to enable the selection of places, such as bars, restaurants, and nightclubs, is in progress.
