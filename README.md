@@ -1,6 +1,6 @@
 # Weathermom
 
-An application designed to provide weather information to the user in a unique way, adopting the persona of a caring mother, built using React (JavaScript, HTML, and CSS) + TypeScript.
+A front-end application designed to provide weather information to the user in a unique way, adopting the persona of a caring mother, built using React (JavaScript, HTML, and CSS) + TypeScript.
 
 ## Live Link
 
